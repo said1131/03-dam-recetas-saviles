@@ -4,7 +4,9 @@ import 'package:recetas_app/models/receta.dart';
 class RecetaCard extends StatelessWidget {
   final Receta receta;
   final VoidCallback? onTap;
-  const RecetaCard({super.key, required this.receta,this.onTap});
+
+  const RecetaCard({super.key, required this.receta, this.onTap});
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -30,9 +32,9 @@ class RecetaCard extends StatelessWidget {
                     width: 72,
                     height: 72,
                     fit: BoxFit.cover,
-                  ), 
-                ), 
-              ), 
+                  ),
+                ),
+              ),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
@@ -43,25 +45,25 @@ class RecetaCard extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 14.5,
                         fontWeight: FontWeight.bold,
-                      ), 
+                      ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                    ), 
+                    ),
                     const SizedBox(height: 4),
                     Text(
-                      '${receta.cocina} · ${receta.dificultad} · ${receta.tiempoTotal} min',
+                      '${receta.cocina}  |  ${receta.dificultad}  |  ${receta.tiempoTotal} min',
                       style: TextStyle(
                         fontSize: 11.5,
                         color: Colors.grey.shade600,
-                      ), 
-                    ), 
+                      ),
+                    ),
                   ],
-                ), 
-              ), 
+                ),
+              ),
             ],
-          ), 
-        ), 
-      ), 
-    ); 
+          ),
+        ),
+      ),
+    );
   }
 }

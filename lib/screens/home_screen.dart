@@ -5,6 +5,7 @@ import 'package:recetas_app/widgets/receta_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -23,9 +24,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('RecetasApp'),
-        backgroundColor: const Color.fromARGB(255, 80, 23, 3),
-      ), // AppBar
+        title: const Text('RecetasApp',
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        )
+        //Oswaldo Said Aviles Cruz
+      ),
+        backgroundColor: const Color.fromARGB(255, 19, 79, 36),
+      ),
       body: FutureBuilder<List<Receta>>(
         future: _futureRecetas,
         builder: (context, snapshot) {
@@ -35,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           }
+
           final recetas = snapshot.data!;
           return ListView.builder(
             padding: const EdgeInsets.symmetric(vertical: 8),
@@ -42,9 +51,9 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, index) {
               return RecetaCard(receta: recetas[index]);
             },
-          ); 
+          );
         },
-      ), 
-    ); 
+      ),
+    );
   }
 }
